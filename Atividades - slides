@@ -1,0 +1,95 @@
+//Exercício 01//
+
+package main
+
+import (
+	"fmt"
+)
+
+type Retangulo struct {
+	Largura float64
+	Altura  float64
+}
+
+func CalcularArea(retangulo Retangulo) float64 {
+	return retangulo.Largura * retangulo.Altura
+}
+
+func main() {
+	retangulo := Retangulo{
+		Largura: 10.0,
+		Altura:  5.0,
+	}
+
+	area := CalcularArea(retangulo)
+	fmt.Println("Área do Retângulo:", area)
+}
+
+//Eercício 02//
+
+package main
+
+import (
+	"fmt"
+)
+
+type Livro struct {
+	Titulo         string
+	Autor          string
+	AnoPublicacao  int
+}
+
+func ImprimirLivro(livro Livro) {
+	fmt.Println("Título:", livro.Titulo)
+	fmt.Println("Autor:", livro.Autor)
+	fmt.Println("Ano de Publicação:", livro.AnoPublicacao)
+}
+
+func main() {
+	livro := Livro{
+		Titulo:        "Aventuras de Alice no País das Maravilhas",
+		Autor:         "Lewis Carroll",
+		AnoPublicacao: 1865,
+	}
+
+	ImprimirLivro(livro)
+}
+
+//Exercício 03//
+
+package main
+
+import (
+	"fmt"
+)
+
+type Aluno struct {
+	Nome  string
+	Idade int
+	Notas []float64
+}
+
+func CalcularMediaNotas(aluno Aluno) float64 {
+	total := 0.0
+
+	for _, nota := range aluno.Notas {
+		total += nota
+	}
+
+	media := total / float64(len(aluno.Notas))
+	return media
+}
+
+func main() {
+	aluno := Aluno{
+		Nome:  "João",
+		Idade: 18,
+		Notas: []float64{8.5, 7.2, 9.0, 6.8, 9.5},
+	}
+
+	media := CalcularMediaNotas(aluno)
+
+	fmt.Println("Aluno:", aluno.Nome)
+	fmt.Println("Idade:", aluno.Idade)
+	fmt.Println("Média das Notas:", media)
+}
